@@ -1,93 +1,63 @@
-Confort WhatsApp AI Bot
+# Confort WhatsApp AI Bot
 
-AI-powered WhatsApp assistant for Confort del Hogar.
-Automates customer support, recommends products, and integrates with internal systems to increase sales and reduce manual workload.
+Asistente inteligente para automatizar consultas comerciales por WhatsApp, recomendar productos y facilitar el acceso a información actualizada de precios y stock.
 
-Overview
+> **Estado actual:** diseño técnico y preparación del MVP. La integración completa con WhatsApp, IA y el sistema interno todavía está en desarrollo.
 
-This project aims to build an intelligent assistant that interacts with customers via WhatsApp, providing real-time product information and personalized recommendations.
+## Problema que busca resolver
 
-The system connects to the company's internal system (Integra - GeneXus) to retrieve accurate data such as products, prices, and stock.
+La atención comercial recibe consultas repetitivas sobre productos, precios, disponibilidad y enlaces de compra. El proyecto busca reducir ese trabajo manual y ofrecer respuestas rápidas basadas en información real de la empresa.
 
-Objectives
-Automate customer support via WhatsApp
-Provide real-time product recommendations
-Send purchase links directly to users
-Reduce manual workload for sales agents
-Increase conversion and sales
-Architecture
-WhatsApp User
-     ↓
-Twilio API
-     ↓
-Backend (Node.js / NestJS)
-     ↓
-OpenAI (Intent detection + response generation)
-     ↓
-Data Access Layer
-     ↓
-Integra Database (GeneXus)
-Tech Stack
-Backend: Node.js + TypeScript
-Framework: NestJS (Clean Architecture)
-AI: OpenAI
-WhatsApp Integration: Twilio API
-Database: Integra (GeneXus)
-Architecture Style: Clean Architecture
-Main Flow
-User sends a message via WhatsApp
-Twilio forwards the message to the backend (webhook)
-The system processes the message
-OpenAI detects user intent
-Backend queries the database
-AI generates a response
-Response is sent back to the user
-MVP Scope
+## Alcance del MVP
 
-Initial version will support:
+- Recibir consultas mediante WhatsApp.
+- Detectar la intención del cliente.
+- Buscar productos por nombre o categoría.
+- Consultar precio y disponibilidad.
+- Recomendar opciones relevantes.
+- Enviar el enlace del producto en la tienda.
+- Derivar la conversación a una persona cuando sea necesario.
 
-Product search
-Automated responses with:
-Product name
-Price
-Purchase link
-Future Improvements
-Order tracking
-Shopping cart via WhatsApp
-Personalized promotions
-Customer segmentation
-Sales analytics
-Integration Requirements (Integra)
+## Arquitectura propuesta
 
-The system requires read-only access to the database.
+1. El cliente envía un mensaje por WhatsApp.
+2. Twilio reenvía el mensaje al backend mediante un webhook.
+3. El backend identifica la intención y valida la solicitud.
+4. La capa de acceso a datos consulta la información autorizada.
+5. OpenAI ayuda a generar una respuesta basada únicamente en esos datos.
+6. Twilio entrega la respuesta al cliente.
 
-Required data:
+## Tecnologías previstas
 
-Products
-Prices
-Stock
-Categories
-Important Notes
-The AI does not access the database directly
-All business logic is handled in the backend
-Responses must be based on real data
-Environment Variables
+| Área | Tecnología |
+|---|---|
+| Backend | Node.js, TypeScript y NestJS |
+| Arquitectura | Clean Architecture |
+| Inteligencia artificial | OpenAI API |
+| Canal de mensajería | Twilio WhatsApp API |
+| Datos | Integración de solo lectura con el sistema Integra/GeneXus |
 
-Create a .env file based on:
+## Principios de diseño
 
-PORT=3000
+- La IA no accede directamente a la base de datos.
+- Las respuestas sobre productos deben basarse en datos reales.
+- La lógica de negocio permanece en el backend.
+- Las credenciales y secretos se administran mediante variables de entorno.
+- La integración con el sistema interno utiliza permisos mínimos y acceso de solo lectura.
 
-OPENAI_API_KEY=
+## Configuración prevista
 
-TWILIO_ACCOUNT_SID=
-TWILIO_AUTH_TOKEN=
-TWILIO_WHATSAPP_NUMBER=
+La aplicación requerirá variables de entorno para el puerto, OpenAI, Twilio y la conexión de solo lectura a los datos. Los valores reales no deben subirse al repositorio.
 
-DB_HOST=
-DB_USER=
-DB_PASS=
-DB_NAME=
+## Próximas etapas
 
-Author
+- Crear la base del proyecto en NestJS.
+- Implementar el webhook de WhatsApp.
+- Definir la fuente autorizada de productos, precios y stock.
+- Incorporar búsqueda y recomendación de productos.
+- Agregar derivación a atención humana.
+- Registrar métricas de consultas y conversiones.
 
-Internal project for Confort del Hogar.
+## Objetivo
+
+Construir una solución aplicable a un negocio real que combine automatización, integración de sistemas e inteligencia artificial para mejorar la atención y apoyar las ventas.
