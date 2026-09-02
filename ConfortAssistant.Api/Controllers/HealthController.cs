@@ -1,0 +1,20 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace ConfortAssistant.Api.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HealthController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(new
+            {
+                status = "ok",
+                service = "ConfortAssistant.Api",
+                timestamp = DateTime.UtcNow
+            });
+        }
+    }
+}

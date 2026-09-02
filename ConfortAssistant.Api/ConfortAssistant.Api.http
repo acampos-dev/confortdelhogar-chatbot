@@ -1,0 +1,14 @@
+@ConfortAssistant.Api_HostAddress = http://localhost:5064
+
+GET {{ConfortAssistant.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST https://localhost:7139/api/whatsapp/webhook
+Content-Type: application/json
+
+{
+  "from": "59899123456",
+  "message": "Hola, estoy buscando un perfume"
+}
