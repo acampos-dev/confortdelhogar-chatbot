@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="ConfortAssistan.IntegrationLab/ConfortAssistant.IntegrationLab.csproj" />
+  <Project Path="ConfortAssistant.IntegrationLab/ConfortAssistant.IntegrationLab.csproj" />
   <Project Path="ConfortAssistant.Api/ConfortAssistant.Api.csproj" Id="5197afff-63f7-44a6-8903-206f1b7c6af9" />
 </Solution>
