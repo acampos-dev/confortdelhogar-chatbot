@@ -16,7 +16,7 @@ public class RuleBasedMessageProcessor : IMessageProcessor
             StringComparison.OrdinalIgnoreCase))
         {
             var products =
-                await _productService.GetProductsAsync();
+                await _productService.SearchProductsAsync("fragrance");
 
             var fragrances = products
                 .Where(product =>

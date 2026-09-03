@@ -23,4 +23,17 @@ public class ProductsController : ControllerBase
 
         return Ok(products);
     }
+
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchProducts([FromQuery] string? query)
+    {
+       if(string.IsNullOrWhiteSpace(query))
+        {
+            return BadRequest("Debe ingresar un texto para buscar productos.");
+        }
+
+       var products = await _productService.SearchProductsAsync(query);
+
+        return Ok(products);
+    }
 }
